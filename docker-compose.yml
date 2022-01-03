@@ -1,0 +1,28 @@
+version: '3'
+services:
+  openssh:
+    build:
+      context: ./openssh
+      dockerfile: Dockerfile
+    image: ttssh-openssh
+    ports:
+    - "8022:22"
+    tty: true
+    command: /sbin/init
+  twisted:
+    build:
+      context: ./twisted
+      dockerfile: Dockerfile
+    image: ttssh-twisted
+    ports:
+    - "5022:5022"
+    tty: true
+    command: /usr/bin/python /root/sshsimpleserver.py
+  dropbear:
+    image: sjourdan/alpine-sshd
+    environment:
+    - USER=ttssh2
+    - PASSWORD=ttssh2
+    ports:
+    - "9022:22"
+    tty: true

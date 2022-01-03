@@ -1,0 +1,11 @@
+--- twisted/conch/ssh/transport.py.orig	2008-07-29 20:13:54.000000000 +0000
++++ twisted/conch/ssh/transport.py	2021-12-31 02:52:37.352197381 +0000
+@@ -1164,7 +1164,7 @@
+         'aes192-ctr':('AES', 24, 1),
+         'aes256-ctr':('AES', 32, 1),
+         '3des-ctr':('DES3', 24, 1),
+-        'blowfish-ctr':('Blowfish', 16, 1),
++        'blowfish-ctr':('Blowfish', 32, 1),
+         'cast128-ctr':('CAST', 16, 1),
+         'none':(None, 0, 0),
+     }
